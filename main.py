@@ -13,21 +13,20 @@ for i in tuple_d:
         res = res + ((i, count),)
 print('№2 : \n', 'res =', res)
 # 3
-res = []
-for index, i in enumerate(tuple_d):
-    count = tuple_d.count(i)
-    if tuple_d.index(i) == index:
-        if count > 1:
-            result_index = []
-            for index1, i1 in enumerate(tuple_d):
-                if i1 == i:
-                    result_index.append(index1)
-                    result_index_tuple = tuple(result_index)
-                    result = (i, result_index_tuple)
-            res.append(result)
-res_tuple = tuple(res)
-print('№3 : \n' 'res =', res_tuple)
-
+result = []
+elements = []
+for index, element in enumerate(tuple_d):
+    count = tuple_d.count(element)
+    if count > 1 and element not in elements:
+        elements.append(element)
+        indexes = []
+        for _index, _element in enumerate(tuple_d):
+            if element == _element:
+                indexes.append(_index)
+        indexes = tuple(indexes)
+        _result = (element, indexes)
+        result.append(_result)
+print('№3 : \n' 'res =', tuple(result))
 # 1
 list_a = [1, 2, 3, 4, 5]
 list_b = [6, 7, 8, 9, 10]
@@ -71,11 +70,5 @@ for index, item in enumerate(list_c):
     result = (list_c[index], list_d[index])
     res.append(result)
 print('#7\n', 'res = ', res)
-
-
-
-
-
-
 
 
